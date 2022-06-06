@@ -1,10 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import Skill
 
 
 def index(request):
-    return HttpResponse('Hello world!')
+    skill = Skill.objects.order_by('-created_at')
+    return render(request, 'skills/index.html', context={'skills': skill, 'name_skill': 'Список навыков'})
 
-
-def test(request):
-    return HttpResponse('<h1>Hello world начало</h1>')

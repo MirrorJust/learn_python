@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ name_skill }}</title>
+</head>
+<body>
+<h1>{{ name_skill }}</h1>
+
+{% for item in skills %}
+    <div>
+        <p>{{ item.name_skill }}</p>
+        <p>{{ item.description }}</p>
+        <p><i>{{ item.created_at|date:'Y-m-d H:i:s' }}</i></p>
+    </div>
+    <hr>
+
+{% endfor %}
+
+</body>
+</html>
