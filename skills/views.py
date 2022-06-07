@@ -4,6 +4,7 @@ from .models import Skill
 
 
 def index(request):
-    skill = Skill.objects.order_by('-created_at')
-    return render(request, 'skills/index.html', context={'skills': skill, 'name_skill': 'Список навыков'})
-
+    skill = Skill.objects.all()
+    context = {'skills': skill,
+               'name_skill': 'Список навыков'}
+    return render(request, 'skills/index.html', context=context)
