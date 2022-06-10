@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block name_page %}
+<h1>{{ skill_item.title }}</h1>
+{% endblock %}
+
+{% block sidebar %}
+{% include 'inc/_sidebar.html' %}
+{% endblock %}
+
+{% block content %}
+<div class="card mb-3">
+    <div class="card-header">
+    {{ skill_item.category.title}}
+    </div>
+    <div class="card-body">
+        <div class="media">
+            {% if skill_item.photo %}
+              <img src="{{ skill_item.photo.url }}" alt="Ничего" width="300px" height="200px" class="mr-3 mb-2 pull-left">
+            {% else %}
+              <img src="https://picsum.photos/seed/picsum/70/50" alt="" class="mr-3 mb-2">
+            {% endif %}
+            <div class="media-body">
+                <h5 class="card-title mt-0">{{ skill_item.name_skill }}</h5>
+                <p class="card-text">{{ skill_item.description}}</p>
+            </div>
+        </div>
+    </div>
+  <div class="card-footer text-muted">
+    Навык добавлен: {{ skill_item.created_at|date:"Y-m-d"}}
+  </div>
+</div>
+{% endblock %}
