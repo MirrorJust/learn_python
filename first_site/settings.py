@@ -117,6 +117,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = '/static/'
+# суть констатнты - собрать все статические файлы в одно место, работает на проде
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# со все путей указанных в этой константе django соберет статику и поместит в директорию, указанную в STATIC_ROOT
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'first_site/static'),
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

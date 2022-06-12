@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Skill, Category
+from .forms import SkillsForm
 
 
 def index(request):
@@ -23,3 +24,11 @@ def view_skills(request, skill_id):
     #skill_item = Skill.objects.get(pk=skill_id)
     skill_item = get_object_or_404(Skill, pk=skill_id)
     return render(request, 'skills/view_skills.html', {'skill_item': skill_item})
+
+
+def add_skill(request):
+    if request.method == 'POST':
+        pass
+    else:
+        form = SkillsForm()
+    return render(request, 'skills/add_skill.html', {'form': form})

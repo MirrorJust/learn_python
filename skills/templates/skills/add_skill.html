@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Добавление навыка
+{% endblock %}
+
+{% block name_page %}
+<h1>{{ skill_item.title }}</h1>
+{% endblock %}
+
+{% block sidebar %}
+{% include 'inc/_sidebar.html' %}
+{% endblock %}
+
+{% block content %}
+
+<h1>Добавление навыка</h1>
+<form action="{% url 'add_skill' %}} method='POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="'btn btn-primary btn-block">Добавить навык</button>
+</form>
+
+{% endblock %}
