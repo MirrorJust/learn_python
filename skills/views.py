@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Skill, Category
 from .forms import SkillsForm
 
@@ -28,7 +28,11 @@ def view_skills(request, skill_id):
 
 def add_skill(request):
     if request.method == 'POST':
-        pass
+        form = SkillsForm(request.POST)
+        if form.is_valid():
+            #skill = Skill.objects.create(**form.cleaned_data)
+            skill = form.save()
+            return redirect(skill)
     else:
         form = SkillsForm()
     return render(request, 'skills/add_skill.html', {'form': form})

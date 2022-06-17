@@ -7,7 +7,7 @@ class Skill(models.Model):
     description = models.TextField(blank=True, verbose_name='Описание')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Добавлен')
     update_at = models.DateTimeField(auto_now=True, verbose_name='Обновлено')
-    photo = models.ImageField(upload_to='photos/%Y/%m/%d', blank=True)
+    photo = models.ImageField(upload_to='photos/%Y/%m/%d', blank=True, verbose_name='Изображение навыка')
     is_published = models.BooleanField(default=True, verbose_name='Навык поулчен?')
     category = models.ForeignKey('Category', on_delete=models.PROTECT, null=True, verbose_name='Категория')
 
