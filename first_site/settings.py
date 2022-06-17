@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'skills.apps.SkillsConfig',
+    'app_users',
 ]
 
 MIDDLEWARE = [
@@ -77,7 +78,7 @@ WSGI_APPLICATION = 'first_site.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': str(os.path.join(BASE_DIR, "db.sqlite3"))
     }
 }
 
@@ -131,3 +132,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+# Перенаправление на старницу после успешного ввода логина и пароля
+LOGIN_REDIRECT_URL = '/'
+
+# Время жизни сессии (задано на 1 месяц в секундах)
+SESSION_COOKIE_AGE = 30 * 24 * 60 * 60
+# Название cookie сессии
+SESSION_COOKIE_NAME = 'session_id'
+# Boolean значение, отвечает за то, будет ли завершена сессеия после закрытия браузера
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True

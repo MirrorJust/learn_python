@@ -16,9 +16,9 @@
     <div class="card-body">
         <div class="media">
             {% if skill_item.photo %}
-              <img src="{{ skill_item.photo.url }}" alt="Ничего" width="300px" height="200px" class="mr-3 mb-2 pull-left">
+              <img src="{{ skill_item.photo.url }}" alt="Картинка нвыка" width="300px" height="200px" class="mr-3 mb-2 pull-left">
             {% else %}
-              <img src="https://picsum.photos/seed/picsum/70/50" alt="" class="mr-3 mb-2">
+              <img src="https://picsum.photos/seed/picsum/300/200" alt="Шаблонное изображение" class="mr-3 mb-2">
             {% endif %}
             <div class="media-body">
                 <h5 class="card-title mt-0">{{ skill_item.name_skill }}</h5>
